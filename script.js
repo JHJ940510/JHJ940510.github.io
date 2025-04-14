@@ -21,7 +21,7 @@ async function sendMessage() {
 
   try {
     const response = await fetch(
-      'https://script.google.com/a/macros/pchand.or.kr/s/AKfycbxU9KBRZMn1VD_fKmLW-180zV-oQRWkV5ZZj3KzMq55JsfgdQa1cPiH2rpQO0NkS_0b0Q/exec',
+      'https://script.google.com/a/macros/pchand.or.kr/s/AKfycbznhW0ceYgYdOJMogOPH6dSzoB9e6U1nqSCCAYywNTdMcTsGMLLM-717nh7hYYR3fFGkw/exec',
       {
         method: 'POST',
         headers: {
