@@ -20,16 +20,19 @@ async function sendMessage() {
   userInput.value = '';
 
   const response = await fetch(
-    'https://script.google.com/u/0/home/projects/17fP1OSDnLwhkw9Rw2qhcdSnrqGNj7e5vTXxs4-F6aaUUUHeuiAjrkUNl/edit',
+    'https://script.google.com/a/macros/pchand.or.kr/s/AKfycbxU9KBRZMn1VD_fKmLW-180zV-oQRWkV5ZZj3KzMq55JsfgdQa1cPiH2rpQO0NkS_0b0Q/exec',
     {
       method: 'POST',
-      contentType: 'application/json',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({ 질문: question })
     }
   );
 
   const data = await response.json();
-  addMessage('🤖 ' + data.답변, 'bot');
+  const answer = data.답변 || "답변이 확인되지않습니다. 메인 페이지 우측 상단에 '문의사항'에 입력해주시면 확인 후 안내드리겠습니다.";
+  addMessage('🤖 ' + answer, 'bot');
 }
 
 function addMessage(text, sender) {
