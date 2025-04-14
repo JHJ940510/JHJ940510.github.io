@@ -9,7 +9,7 @@ chatbotButton.onclick = () => {
   chatContainer.style.display = isVisible ? 'none' : 'flex';
   chatContainer.style.flexDirection = 'column';
 
-  if (!isVisible && chatBody.childElementCount === 0) {
+  if (!isVisible && chatBody.childElementCount === 1) {
     addMessage('🤖 무엇을 도와드릴까요?', 'bot');
   }
 };
