@@ -20,7 +20,7 @@ async function sendMessage() {
   userInput.value = '';
 
   const response = await fetch(
-    'https://script.google.com/a/macros/pchand.or.kr/s/AKfycbyH02yItnz4s7BxIj_uDWvGfiXTTgtekRvRpMMMBxQAhgXoNS7sTGhYIhmn8TWfyVe5Jw/exec',
+    'https://script.google.com/u/0/home/projects/17fP1OSDnLwhkw9Rw2qhcdSnrqGNj7e5vTXxs4-F6aaUUUHeuiAjrkUNl/edit',
     {
       method: 'POST',
       contentType: 'application/json',
