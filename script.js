@@ -5,8 +5,13 @@ const chatBody = document.getElementById('chat-body');
 const userInput = document.getElementById('user-input');
 
 chatbotButton.onclick = () => {
-  chatContainer.style.display = chatContainer.style.display === 'flex' ? 'none' : 'flex';
+  const isVisible = chatContainer.style.display === 'flex';
+  chatContainer.style.display = isVisible ? 'none' : 'flex';
   chatContainer.style.flexDirection = 'column';
+
+  if (!isVisible && chatBody.childElementCount === 0) {
+    addMessage('🤖 무엇을 도와드릴까요?', 'bot');
+  }
 };
 
 async function sendMessage() {
