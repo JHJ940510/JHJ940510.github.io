@@ -6,6 +6,16 @@ const userInput = document.getElementById('user-input');
 
 let greeted = false;
 
+// 팝업이 열릴 때 자동으로 챗봇 열기
+window.onload = () => {
+  chatContainer.style.display = 'flex';
+  chatContainer.style.flexDirection = 'column';
+  if (!greeted) {
+    addMessage('🤖 무엇을 도와드릴까요?', 'bot');
+    greeted = true;
+  }
+};
+
 chatbotButton.onclick = () => {
   const isVisible = chatContainer.style.display === 'flex';
   chatContainer.style.display = isVisible ? 'none' : 'flex';
