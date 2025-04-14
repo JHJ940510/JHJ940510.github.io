@@ -1,31 +1,11 @@
 
-const chatbotButton = document.getElementById('chatbot-button');
 const chatContainer = document.getElementById('chat-container');
 const chatBody = document.getElementById('chat-body');
 const userInput = document.getElementById('user-input');
 
-let greeted = false;
-
-// 팝업이 열릴 때 자동으로 챗봇 열기
-window.onload = () => {
-  chatContainer.style.display = 'flex';
-  chatContainer.style.flexDirection = 'column';
-  if (!greeted) {
-    addMessage('🤖 무엇을 도와드릴까요?', 'bot');
-    greeted = true;
-  }
-};
-
-chatbotButton.onclick = () => {
-  const isVisible = chatContainer.style.display === 'flex';
-  chatContainer.style.display = isVisible ? 'none' : 'flex';
-  chatContainer.style.flexDirection = 'column';
-
-  if (!isVisible && !greeted) {
-    addMessage('🤖 무엇을 도와드릴까요?', 'bot');
-    greeted = true;
-  }
-};
+function openChat() {
+  addMessage('🤖 무엇을 도와드릴까요?', 'bot');
+}
 
 userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
