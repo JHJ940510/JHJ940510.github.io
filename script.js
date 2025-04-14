@@ -19,20 +19,24 @@ async function sendMessage() {
   addMessage('🙋‍♀️ ' + question, 'user');
   userInput.value = '';
 
-  const response = await fetch(
-    'https://script.google.com/a/macros/pchand.or.kr/s/AKfycbxU9KBRZMn1VD_fKmLW-180zV-oQRWkV5ZZj3KzMq55JsfgdQa1cPiH2rpQO0NkS_0b0Q/exec',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ 질문: question })
-    }
-  );
+  try {
+    const response = await fetch(
+      'https://script.google.com/a/macros/pchand.or.kr/s/AKfycbxU9KBRZMn1VD_fKmLW-180zV-oQRWkV5ZZj3KzMq55JsfgdQa1cPiH2rpQO0NkS_0b0Q/exec',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 질문: question })
+      }
+    );
 
-  const data = await response.json();
-  const answer = data.답변 || "답변이 확인되지않습니다. 메인 페이지 우측 상단에 '문의사항'에 입력해주시면 확인 후 안내드리겠습니다.";
-  addMessage('🤖 ' + answer, 'bot');
+    const data = await response.json();
+    const answer = data.답변 || "답변이 확인되지않습니다. 메인 페이지 우측 상단에 '문의사항'에 입력해주시면 확인 후 안내드리겠습니다.";
+    addMessage('🤖 ' + answer, 'bot');
+  } catch (error) {
+    addMessage('🤖 응답을 받아오지 못했습니다. 로그인 상태를 확인해주세요.', 'bot');
+  }
 }
 
 function addMessage(text, sender) {
