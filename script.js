@@ -4,13 +4,16 @@ const chatContainer = document.getElementById('chat-container');
 const chatBody = document.getElementById('chat-body');
 const userInput = document.getElementById('user-input');
 
+let greeted = false;
+
 chatbotButton.onclick = () => {
   const isVisible = chatContainer.style.display === 'flex';
   chatContainer.style.display = isVisible ? 'none' : 'flex';
   chatContainer.style.flexDirection = 'column';
 
-  if (!isVisible && chatBody.childElementCount === 1) {
+  if (!isVisible && !greeted) {
     addMessage('🤖 무엇을 도와드릴까요?', 'bot');
+    greeted = true;
   }
 };
 
