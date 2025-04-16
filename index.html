@@ -1,14 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>챗봇 전체창</title>
+  <title>챗봇 팝업</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="openChat()">
-  <div id="chat-container">
+<body>
+  <button id="chat-toggle" onclick="toggleChat()">💬 챗봇 열기</button>
+
+  <div id="chat-popup" class="hidden">
     <div id="chat-header">챗봇</div>
     <div id="chat-body"></div>
     <div id="chat-input">
@@ -16,6 +17,7 @@
       <button onclick="sendMessage()">전송</button>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

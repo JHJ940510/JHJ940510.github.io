@@ -1,5 +1,12 @@
+function toggleChat() {
+  const popup = document.getElementById("chat-popup");
+  popup.classList.toggle("hidden");
+  if (!popup.classList.contains("hidden") && !popup.dataset.loaded) {
+    openChat();
+    popup.dataset.loaded = true;
+  }
+}
 
-const chatContainer = document.getElementById('chat-container');
 const chatBody = document.getElementById('chat-body');
 const userInput = document.getElementById('user-input');
 
@@ -21,7 +28,7 @@ async function sendMessage() {
 
   try {
     const response = await fetch(
-      'https://script.google.com/a/macros/pchand.or.kr/s/AKfycbznhW0ceYgYdOJMogOPH6dSzoB9e6U1nqSCCAYywNTdMcTsGMLLM-717nh7hYYR3fFGkw/exec',
+      'https://script.google.com/macros/s/AKfycbznhW0ceYgYdOJMogOPH6dSzoB9e6U1nqSCCAYywNTdMcTsGMLLM-717nh7hYYR3fFGkw/exec',
       {
         method: 'POST',
         headers: {
