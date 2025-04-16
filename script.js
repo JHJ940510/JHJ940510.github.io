@@ -3,6 +3,9 @@ const chatBody = document.getElementById('chat-body');
 const userInput = document.getElementById('user-input');
 
 function openChat() {
+  if (chatContainer) {
+    chatContainer.style.display = 'flex';
+  }
   addMessage('🤖 무엇을 도와드릴까요?', 'bot');
 }
 

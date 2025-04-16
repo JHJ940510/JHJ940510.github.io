@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="openChat()">
-  <div id="chat-container">
+<body>
+  <div id="chat-container" style="display: flex;">
     <div id="chat-header">챗봇</div>
     <div id="chat-body"></div>
     <div id="chat-input">
@@ -16,5 +16,10 @@
     </div>
   </div>
   <script src="script.js"></script>
+  <script>
+    window.onload = function() {
+      openChat();
+    };
+  </script>
 </body>
 </html>
