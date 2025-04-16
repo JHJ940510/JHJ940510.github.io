@@ -16,6 +16,27 @@ function handleKey(e) {
       const p = document.createElement("p");
       p.textContent = "사용자: " + msg;
       body.appendChild(p);
+
+      fetch("https://script.google.com/macros/s/YOUR_WEB_APP_URL/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ question: msg })
+      })
+      .then(response => response.json())
+      .then(data => {
+        const botReply = document.createElement("p");
+        botReply.textContent = "챗봇: " + data.answer;
+        body.appendChild(botReply);
+      })
+      .catch(error => {
+        console.error("에러:", error);
+        const botReply = document.createElement("p");
+        botReply.textContent = "챗봇: 오류가 발생했어요.";
+        body.appendChild(botReply);
+      });
+
       input.value = "";
     }
   }
