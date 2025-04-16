@@ -1,12 +1,3 @@
-function toggleChat() {
-  const popup = document.getElementById("chat-popup");
-  popup.classList.toggle("hidden");
-  if (!popup.classList.contains("hidden") && !popup.dataset.loaded) {
-    openChat();
-    popup.dataset.loaded = true;
-  }
-}
-
 const chatBody = document.getElementById('chat-body');
 const userInput = document.getElementById('user-input');
 
