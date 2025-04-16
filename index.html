@@ -1,21 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>챗봇 전체창</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>챗봇 팝업</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="openChat()">
-  <div id="chat-container">
-    <div id="chat-header">챗봇</div>
-    <div id="chat-body"></div>
-    <div id="chat-input">
-      <input type="text" id="user-input" placeholder="질문을 입력하세요">
-      <button onclick="sendMessage()">전송</button>
+<body onload="initChat()">
+
+  <button id="chat-button" onclick="toggleChat()">챗봇 열기</button>
+
+  <div id="chat-popup" class="hidden">
+    <div class="chat-header">무엇을 도와드릴까요?</div>
+    <div class="chat-body" id="chat-body">
+      <p>안녕하세요! 궁금한 점을 입력해주세요.</p>
     </div>
+    <input type="text" id="chat-input" placeholder="메시지를 입력하세요..." onkeypress="handleKey(event)">
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
